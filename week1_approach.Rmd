@@ -1,0 +1,18 @@
+---
+title: "Data 607 - Week 1 Approach"
+author: "Kristoff Oliphant"
+date: "2026-01-29"
+output: html_document
+---
+
+# Introduction
+
+In this assignment, I will work with a publicly available dataset from the UCI Machine Learning Repository and use R to select, rename, and recode variables so the data is easier to interpret for downstream analysis.
+
+# Planned Workflow
+
+I will begin by selecting a tabular dataset that contains a clear outcome or target variable along with several additional features. The dataset will be accessed through a public URL to ensure the analysis is fully reproducible. After loading the data into R, I will inspect its structure and identify a subset of relevant variables to include in the final transformed data frame.
+
+# Anticipated Data Challenges
+
+Possible challenges include missing values, inconsistent data types, and abbreviated or coded variable values that are not immediately interpretable. I anticipate needing to recode certain variables and rename columns to improve clarity and usability for future analysis.
