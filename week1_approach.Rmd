@@ -7,7 +7,7 @@ output: html_document
 
 # Introduction
 
-In this assignment, I will work with a publicly available dataset from the UCI Machine Learning Repository and use R to select, rename, and recode variables so the data is easier to interpret for downstream analysis.
+I plan to use the Wine dataset from the UCI Machine Learning Repository, which contains chemical measurements of wines derived from three different cultivars grown in the same region of Italy. I chose this dataset because it includes a clear target variable and multiple quantitative features that are well suited for practicing data transformations and cleaning tasks.
 
 # Planned Workflow
 
