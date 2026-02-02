@@ -1,0 +1,74 @@
+---
+title: "Data 607 - Week 1 Approach"
+author: "Kristoff Oliphant"
+date: "2026-01-29"
+output: html_document
+---
+
+# Introduction
+
+I plan to use the Wine dataset from the UCI Machine Learning Repository, which contains chemical measurements of wines derived from three different cultivars grown in the same region of Italy. I chose this dataset because it includes a clear target variable and multiple quantitative features that are well suited for practicing data transformations and cleaning tasks.
+
+# Planned Workflow
+
+I will begin by selecting a tabular dataset that contains a clear outcome or target variable along with several additional features. The dataset will be accessed through a public URL to ensure the analysis is fully reproducible. After loading the data into R, I will inspect its structure and identify a subset of relevant variables to include in the final transformed data frame.
+
+# Anticipated Data Challenges
+
+Possible challenges include missing values, inconsistent data types, and abbreviated or coded variable values that are not immediately interpretable. I anticipate needing to recode certain variables and rename columns to improve clarity and usability for future analysis.
+
+# Data Loading
+
+```{r}
+wine_raw <- read.csv(
+  "https://raw.githubusercontent.com/Kristoffgit/data-607-week-1/refs/heads/main/wine.csv",
+  header = FALSE
+)
+```
+
+```{r}
+colnames(wine_raw) <- c(
+  "class",
+  "alcohol",
+  "malic_acid",
+  "ash",
+  "alcalinity_of_ash",
+  "magnesium",
+  "total_phenols",
+  "flavanoids",
+  "nonflavanoid_phenols",
+  "proanthocyanins",
+  "color_intensity",
+  "hue",
+  "od280_od315",
+  "proline"
+)
+head(wine_raw)
+```
+
+```{r}
+wine_raw$class <- factor(
+  wine_raw$class,
+  levels = c(1, 2, 3),
+  labels = c("Cultivar_1", "Cultivar_2", "Cultivar_3")
+)
+table(wine_raw$class)
+```
+
+```{r}
+wine_clean <- wine_raw[, c(
+  "class",
+  "alcohol",
+  "malic_acid",
+  "total_phenols",
+  "flavanoids",
+  "color_intensity",
+  "proline"
+)]
+
+head(wine_clean)
+```
+
+# Conclusions and Next Steps
+
+In this assignment, I loaded the Wine dataset from a public GitHub URL and transformed it into a more interpretable format ready for analysis. I assigned column names based on the UCI documentation provided, recoded the target variable (`class`) into labeled cultivars. Then I created a smaller dataset (`wine_clean`) which contained the target plus a subset of relevant features. An idea to extend this work, I could explore how environmental factors such as where the grapes are grown may influence the chemical composition of wines. Since this dataset focuses on wines from a single region in Italy, comparing it to similar data from other regions could help determine whether the observed differences are specific to cultivars or influenced by conditions where it's grown. 
